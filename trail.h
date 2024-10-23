@@ -18,7 +18,7 @@ class Node {
 
 class trail {
  public:
-	list();
+	trail();
 	void addNode(const int[] &, const int[] &, const string[] &);
 	void randomize(); //store pointers in vector, shuffle vector, change pointers in nodes
 	string checkStatus(int[] &); //checks for death; checkStatus == "" means death
