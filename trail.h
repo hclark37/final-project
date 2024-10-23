@@ -6,9 +6,9 @@ class Node {
 	friend class trail;
 
 	public:
-		Node(const int &);     
+		Node(const int[] &, const int[] &, const string[] &); 
 		string getData() const;
-		string choice(bool, int[] &) const; //return strings[1 + (int)bool]
+		string choice(bool choice, int[] &) const; //return strings[1 + (int)bool]
 	private:
 		string strings[3];
 		int choice1[4];
@@ -18,12 +18,14 @@ class Node {
 
 class trail {
  public:
-	list();   
+	list();
+	void addNode(const int[] &, const int[] &, const string[] &);
 	void randomize(); //store pointers in vector, shuffle vector, change pointers in nodes
 	string checkStatus(int[] &); //checks for death; checkStatus == "" means death
 	string win(int[] &);
  private:
-	Node *newNode(const int &); 
+	
+	Node *newNode(const int[] &, const int[] &, const string[] &); 
 	Node *first;
 	Node *current;
 	string deathMessages[8];
