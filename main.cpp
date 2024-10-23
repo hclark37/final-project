@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "List.h"
+#include "trail.h"
 
 using namespace std;
 
