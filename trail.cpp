@@ -1,4 +1,4 @@
-#include "list.h"
+#include "trail.h"
 #include <iostream>
 #include <fstream>
 
