@@ -4,14 +4,30 @@
 #include <string>
 using namespace std;
 
-void trail::addNode(const int &choice1[], const int &choice2[], const string &outputs[]) {
-	Node *new_node = newNode(choices1, choices2, outputs); 
-	new_node->next = first;  
-	first = new_node;
-}
-
-Node *trail::newNode(const int &choice1[], const int &choice2[], const string &outputs[]) {
-	return new Node(choices1, choices2, outputs);
+trail::trail() : first(NULL) { 
+	ifstream fin("input.txt");
+	
+	string outputs[3];
+	int choices1[4];
+	int choices2[4];
+	
+	while(getline(fin, line)) {
+		outputs[0] = line;
+		getline(fin, line);
+		outputs[1] = line;
+		getline(fin, line);
+		outputs[2] = line;
+		for (int i = 0; i < 4; i++) {
+			getline(fin, line);
+			choices1[i] = stoi(line);
+		}
+		for (int i = 0; i < 4; i++) {
+			getline(fin, line);
+			choices2[i] = stoi(line);
+		}
+		addNode(choices1, choices2, outputs);
+	}
+	
 }
 
 void trail::addNode(const int &choice1[], const int &choice2[], const string &outputs[]) {
