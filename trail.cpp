@@ -1,17 +1,28 @@
 #include "trail.h"
 #include <iostream>
 #include <fstream>
-
+#include <string>
 using namespace std;
 
-trail::trail() {
-
+void trail::addNode(const int &choice1[], const int &choice2[], const string &outputs[]) {
+	Node *new_node = newNode(choices1, choices2, outputs); 
+	new_node->next = first;  
+	first = new_node;
 }
 
-void trail::addNode(const int[] &, const int[] &, const string[] &) {
-
+Node *trail::newNode(const int &choice1[], const int &choice2[], const string &outputs[]) {
+	return new Node(choices1, choices2, outputs);
 }
 
+void trail::addNode(const int &choice1[], const int &choice2[], const string &outputs[]) {
+	Node *new_node = newNode(choices1, choices2, outputs); 
+	new_node->next = first;  
+	first = new_node;
+}
+
+Node *trail::newNode(const int &choice1[], const int &choice2[], const string &outputs[]) {
+	return new Node(choices1, choices2, outputs);
+}
 void trail::randomize() {
 
 }
