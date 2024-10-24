@@ -1,28 +1,44 @@
-#include "trail.h"
+#include "list.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
-trail::trail() : first(NULL) { 
-	
-	
+trail::trail() {
+
 }
 
-void trail::addNode(const int &choice1[], const int &choice2[], const string &outputs[]) {
-	
-	
+void trail::addNode(const int[] &, const int[] &, const string[] &) {
+
 }
 
 void trail::randomize() {
-	
-	
+
 }
 
-const string trail::checkStatus(int &stats[]) {
-	
-	
+string trail::checkStatus(int[] stats &) {
+	for (int i = 0;i < 4;i++) {
+		if (stats[i] <= 0) {
+			return deathMessages[i];
+		} else if (stats[i] >= 100) {
+			return deathMessages[i + 4];
+		}
+	}
+	return "";
 }
 
-string Node::getData(void) const {
-	return string[0];	
+string trail::win(int[] &) {
+
+}
+
+Node::Node(const int[] &, const int[] &, const string[] &) {
+
+}
+
+string Node::getData() const {
+
+}
+
+string Node::choice(bool, int[] &) const {
+
 }
