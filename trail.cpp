@@ -69,7 +69,7 @@ void trail::randomize() { //reorder all the nodes
 	}
 	first = new_nodes[0]; //make new first node 
 }
-string trail::checkStatus(int[] stats &) {
+string trail::checkStatus(int[] stats) {
 	turnCounter++;
 	for (int i = 0;i < 4;i++) {
 		if (stats[i] <= 0) {
@@ -84,11 +84,11 @@ string trail::checkStatus(int[] stats &) {
 	return "";
 }
 
-string trail::win(int[] &) {
+string trail::win(int[] stats) {
 	int finalscore = 0;
 	string finale;
 	for (int i = 0;i < 4;i++) {
-		finalscore += int[i];
+		finalscore += stats[i];
 	}
 	if (finalscore >= 300) {
 		finale += "You are thriving.\n Final score: ";
@@ -106,7 +106,7 @@ string trail::win(int[] &) {
 	return finale;
 }
 
-void trail::Play(int[] stats &) {
+void trail::Play(int[] stats) {
    	 int decision;
    	 Node events;
 	string resolution;
@@ -130,15 +130,13 @@ void trail::Play(int[] stats &) {
 	cout << resolution << endl;
 }
 
-Node::Node(const int[] &, const int[] &, const string[] &) {
-	
-}
+Node::Node(const int[] choice1, const int[] choice2, const string[] events) {}
 
 string Node::getData() const {
 	return strings[0];
 }
 
-string Node::choice(bool decision, int[] stats &) const {
+string Node::choice(bool decision, int[] stats) const {
 	int event = 1 + (int)decision; // finds which decision is made
 
 	// Adds the choice stats to player stats
