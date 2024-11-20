@@ -6,13 +6,15 @@ using namespace std;
 
 int main(int argc,char* argv[]) {
 	if (argc != 2) {
-		cerr << "Usage ./trail file" << endl;
+		cerr << "Usage ./trail input.txt" << endl;
 		return 1;
 	}
 	
 	int[4] stats = [50, 50, 50, 50];
 
-	// trail game;
+	trail theTrail;
+
+    	theTrail.Play(stats);
 
 	return 0;
 }
