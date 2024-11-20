@@ -37,15 +37,16 @@ trail::trail() : first(NULL) {
 	current = first;
 }
 
-void trail::addNode(const int &choice1[], const int &choice2[], const string &outputs[]) {
+void trail::addNode(const int[] choice1, const int[] choice2, const string[] outputs) {
 	Node *new_node = newNode(choices1, choices2, outputs); 
 	new_node->next = first;  
 	first = new_node;
 }
 
-Node *trail::newNode(const int &choice1[], const int &choice2[], const string &outputs[]) {
+Node *trail::newNode(const int[] choice1, const int[] choice2, const string[] outputs) {
 	return new Node(choices1, choices2, outputs);
 }
+
 void trail::randomize() { //reorder all the nodes 
 	vector<*Node> nodes; //original ordered list of nodes 
 	vector<*Node> new_nodes; //reordered, random node vector 
