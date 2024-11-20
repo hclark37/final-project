@@ -39,10 +39,28 @@ void trail::addNode(const int &choice1[], const int &choice2[], const string &ou
 Node *trail::newNode(const int &choice1[], const int &choice2[], const string &outputs[]) {
 	return new Node(choices1, choices2, outputs);
 }
-void trail::randomize() {
-
+void trail::randomize() { //reorder all the nodes 
+	vector<*Node> nodes; //original ordered list of nodes 
+	vector<*Node> new_nodes; //reordered, random node vector 
+	Node *node = first;
+	while (node->next != NULL) {  //while you're not at the end of the list 
+		nodes.push_back(node); //add node to new list 
+		node = node->next; //go to next 
+	}
+	while (nodes.size() != 0) { //while there is still stuff left in nodes 
+		int random = nodes[rand() % nodes.size()]; //get random between start and end of the nodes[] vector 
+		new_nodes.push_back(nodes[random]); //add that node you grabbed to new_nodes 
+		nodes.erase(nodes.begin() + random); //remove that node, thereby decreasing the nodes.size() 
+	}
+	for (int i = 0; i < new_nodes.size(); i++) { //reorder the list 
+		if (i == (new_nodes.size() - 1)) { //if it's the end node, make it go to null at end 
+			new_nodes[i]->next = NULL;
+		} else {
+			new_nodes[i]->next = new_nodes[i+1];
+		}
+	}
+	first = new_nodes[0]; //make new first node 
 }
-
 string trail::checkStatus(int[] stats &) {
 	turnCounter++;
 	for (int i = 0;i < 4;i++) {
