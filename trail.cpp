@@ -88,6 +88,6 @@ string Node::getData() const {
 
 }
 
-string Node::choice(bool, int[] &) const {
-
+string Node::choice(bool decision) const {
+	   return strings[1 + (int)decision];
 }
