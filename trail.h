@@ -7,8 +7,8 @@ class Node {
 
 	public:
 		Node(const int[] &, const int[] &, const string[] &);     
-		string getData() const;
-		string choice(bool) const; //return strings[1 + (int)bool]
+		string getData() const; // gets event occurring
+		string choice(bool, int[] &) const; //changes stats and returns choice event
 	private:
 		string strings[3];
 		int choice1[4];
