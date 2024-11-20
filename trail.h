@@ -8,7 +8,7 @@ class Node {
 	public:
 		Node(const int &);     
 		string getData() const;
-		string choice(bool, int[] &) const; //return strings[1 + (int)bool]
+		string choice(bool) const; //return strings[1 + (int)bool]
 	private:
 		string strings[3];
 		int choice1[4];
