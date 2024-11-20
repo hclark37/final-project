@@ -6,7 +6,7 @@ class Node {
 	friend class trail;
 
 	public:
-		Node(const int &);     
+		Node(const int[] &, const int[] &, const string[] &);     
 		string getData() const;
 		string choice(bool) const; //return strings[1 + (int)bool]
 	private:
