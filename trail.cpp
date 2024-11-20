@@ -103,6 +103,30 @@ string trail::win(int[] &) {
 	return finale;
 }
 
+void trail::Play(int[] stats &) {
+   	 int decision;
+   	 Node events;
+	string resolution;
+    	while (resolution == "") {
+       		cout << events.getData() << endl;
+		cout << "Enter 1 for choice 1 and 2 for choice 2: ";
+        	cin >> value;
+
+        	while (value != 1 || value != 2) {
+        		cout << "Please enter a valid choice: ";
+        		cin >> value;
+        	}
+
+        	decision = (value == 1) ? false : true;
+
+		events.choice(decision, stats);
+		current = current->next;
+
+		resolution = checkStatus(stats);
+	}
+	cout << resolution << endl;
+}
+
 Node::Node(const int[] &, const int[] &, const string[] &) {
 	
 }
