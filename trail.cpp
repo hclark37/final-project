@@ -29,7 +29,10 @@ trail::trail() : first(NULL) {
 		}
 		addNode(choices1, choices2, outputs);
 	}
-	
+	randomize();
+
+	turnCounter = 0;
+	current = first;
 }
 
 void trail::addNode(const int &choice1[], const int &choice2[], const string &outputs[]) {
