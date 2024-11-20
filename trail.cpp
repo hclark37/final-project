@@ -121,7 +121,9 @@ string Node::choice(bool decision, int[] stats &) const {
             	stats[i] += choices2[i];
         	}
     	}
+	string outcome = strings[event];
 
-	// Returns outcome string of choice
-	return strings[event];
+	current = next; // changes the current Node to the next one
+
+	return outcome; // outputs the event choice
 }
