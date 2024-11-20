@@ -10,7 +10,7 @@ int main(int argc,char* argv[]) {
 		return 1;
 	}
 	
-	int[4] stats = [50, 50, 50, 50];
+	int stats[4] = {50, 50, 50, 50};
 
 	trail theTrail;
 
