@@ -18,10 +18,12 @@ class Node {
 
 class trail {
  public:
-	trail();   
+	trail();  
+	void addNode(const int[] &, const int[] &, const string[] &)
 	void randomize(); //store pointers in vector, shuffle vector, change pointers in nodes
 	string checkStatus(int[] &); //checks for death; checkStatus == "" means death
 	string win(int[] &);
+	void Play();
  private:
 	Node *newNode(const int &); 
 	Node *first;
