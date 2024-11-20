@@ -81,13 +81,27 @@ string trail::win(int[] &) {
 }
 
 Node::Node(const int[] &, const int[] &, const string[] &) {
-
+	
 }
 
 string Node::getData() const {
-
+	return strings[0];
 }
 
-string Node::choice(bool decision) const {
-	   return strings[1 + (int)decision];
+string Node::choice(bool decision, int[] stats &) const {
+	int event = 1 + (int)decision; // finds which decision is made
+
+	// Adds the choice stats to player stats
+	if (event == 1) {
+		for (int i = 0;i < 4;i++) {
+			stats[i] += choices1[i];
+		}
+    	} else {
+        	for (int i = 0;i < 4;i++) {
+            	stats[i] += choices2[i];
+        	}
+    	}
+
+	// Returns outcome string of choice
+	return strings[event];
 }
