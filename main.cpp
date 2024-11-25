@@ -1,5 +1,9 @@
 #include <iostream>
 #include <fstream>
+#include <string>
+#include <vector>
+#include <cstdlib>
+#include <string>
 #include "trail.h"
 
 using namespace std;
@@ -10,7 +14,7 @@ int main(int argc,char* argv[]) {
 		return 1;
 	}
 	
-	int stats[4] = {50, 50, 50, 50};
+	int stats[] = {50, 50, 50, 50};
 
 	trail theTrail;
 
