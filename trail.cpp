@@ -9,7 +9,8 @@
 using namespace std;
 
 trail::trail() : first(NULL) { 
-	ifstream fin("input.txt");
+
+	ifstream fin("sampleinput.txt");
 	string line;
 	string outputs[3];
 	int choice1[4];
@@ -68,10 +69,12 @@ void trail::randomize() { //reorder all the nodes
 		}
 	}
 	first = new_nodes[0]; //make new first node 
+	
 }
+
 string trail::checkStatus(int* stats) {
 	turnCounter++;
-	for (int i = 0;i < 4;i++) {
+	for (int i = 0; i < 4; i++) {
 		if (stats[i] <= 0) {
 			return deathMessages[i];
 		} else if (stats[i] >= 100) {
@@ -128,11 +131,14 @@ void trail::Play(int* stats) {
 		}
 
 		cout << choice(decision, stats);
-		current = current->next;
 
 		resolution = checkStatus(stats);
+		cout << resolution << endl;
+		//add fix for if no next node 
+		if (current->next == NULL) {
+			randomize();
+		}
 	}
-	
 	cout << resolution << endl;
 }
 
@@ -155,26 +161,21 @@ string trail::choice(bool decision, int* stats) {
 	string outcome;
 	outcome = current->choice(decision, stats);
 	current = current->next; // changes the current Node to the next one
-	
 	return outcome;
-	
-	
 }
 
 string Node::choice(bool decision, int* stats) {
-	int event = 1 + (int)decision; // finds which decision is made
-
+	
 	// Adds the choice stats to player stats
-	if (event == 1) {
-		for (int i = 0;i < 4;i++) {
+	if (decision == true) {
+		for (int i = 0; i < 4; i++) {
 			stats[i] += choice1[i];
 		}
-    	} else {
-        	for (int i = 0;i < 4;i++) {
-            	stats[i] += choice2[i];
-        	}
-    	}
-	string outcome = strings[event];
-
-	return outcome; // outputs the event choice
+    } else if (decision == false) {
+        for (int i = 0; i < 4; i++) {
+           	stats[i] += choice2[i];
+       	}
+    }
+	
+	return strings[(int)decision + 1]; // outputs the event choice
 }
