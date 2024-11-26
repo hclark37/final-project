@@ -30,7 +30,7 @@ class trail {
 	trail();  
 	void addNode(const int*, const int*, const string*);
 	void randomize(); //store pointers in vector, shuffle vector, change pointers in nodes
-	string checkStatus(int*); //checks for death; checkStatus == "" means death
+	string checkStatus(int*); //checks for death; checkStatus == "" means survival
 	string win(int*);
 	void Play(int* stats);
 	string choice(bool, int*);
@@ -39,8 +39,8 @@ class trail {
 	Node *first;
 	Node *current;
 	int turnCounter;
-	string deathMessages[8];
-	string endings[4];
+	string deathMessages[8] = {"test", "test2", "test3", "test4", "test5", "test6", "test7"};
+	string endings[4] = {"1test", "2test", "3test", "4test"};
 };
 
 
