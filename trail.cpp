@@ -51,7 +51,7 @@ void trail::randomize() { //reorder all the nodes
 	vector<Node*> nodes; //original ordered list of nodes 
 	vector<Node*> new_nodes; //reordered, random node vector 
 	Node *node = first;
-	while (node->next != NULL) {  //while you're not at the end of the list 
+	while (node != NULL) {  //while you're not at the end of the list 
 		nodes.push_back(node); //add node to new list 
 		node = node->next; //go to next 
 	}
@@ -109,14 +109,14 @@ string trail::win(int* stats) {
 void trail::Play(int* stats) {
    	bool decision;
    	current = first;
-	string resolution;
+	string resolution = "";
 	int value;
     while (resolution == "") {
       	cout << current->getData() << endl;
 		cout << "Enter 1 for choice 1 and 2 for choice 2: ";
         cin >> value;
      
-		while (value != 1 || value != 2) {
+		while (value != 1 && value != 2) {
         	cout << "Please enter a valid choice: ";
         	cin >> value;
 			
@@ -136,7 +136,16 @@ void trail::Play(int* stats) {
 	cout << resolution << endl;
 }
 
-Node::Node(const int* choice1, const int* choice2, const string* events) {}
+Node::Node(const int* choice1, const int* choice2, const string* events) {
+	for (int i = 0; i < 3; ++i) {
+		strings[i] = events[i]; 
+    }
+    for (int i = 0; i < 4; ++i) {
+        this->choice1[i] = choice1[i];
+        this->choice2[i] = choice2[i];
+    }
+    next = NULL; 
+}
 
 string Node::getData() const {
 	return strings[0];
