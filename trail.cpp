@@ -10,10 +10,10 @@ using namespace std;
 
 trail::trail() : first(NULL) { 
 	ifstream fin("input.txt");
-	
+	string line;
 	string outputs[3];
-	int choices1[4];
-	int choices2[4];
+	int choice1[4];
+	int choice2[4];
 	
 	while(getline(fin, line)) {
 		outputs[0] = line;
@@ -23,13 +23,13 @@ trail::trail() : first(NULL) {
 		outputs[2] = line;
 		for (int i = 0; i < 4; i++) {
 			getline(fin, line);
-			choices1[i] = stoi(line);
+			choice1[i] = stoi(line);
 		}
 		for (int i = 0; i < 4; i++) {
 			getline(fin, line);
-			choices2[i] = stoi(line);
+			choice2[i] = stoi(line);
 		}
-		addNode(choices1, choices2, outputs);
+		addNode(choice1, choice2, outputs);
 	}
 	randomize();
 
@@ -37,26 +37,26 @@ trail::trail() : first(NULL) {
 	current = first;
 }
 
-void trail::addNode(const int[] choice1, const int[] choice2, const string[] outputs) {
-	Node *new_node = newNode(choices1, choices2, outputs); 
+void trail::addNode(const int* choice1, const int* choice2, const string* outputs) {
+	Node *new_node = newNode(choice1, choice2, outputs); 
 	new_node->next = first;  
 	first = new_node;
 }
 
-Node *trail::newNode(const int[] choice1, const int[] choice2, const string[] outputs) {
-	return new Node(choices1, choices2, outputs);
+Node *trail::newNode(const int* choice1, const int* choice2, const string* outputs) {
+	return new Node(choice1, choice2, outputs);
 }
 
 void trail::randomize() { //reorder all the nodes 
-	vector<*Node> nodes; //original ordered list of nodes 
-	vector<*Node> new_nodes; //reordered, random node vector 
+	vector<Node*> nodes; //original ordered list of nodes 
+	vector<Node*> new_nodes; //reordered, random node vector 
 	Node *node = first;
 	while (node->next != NULL) {  //while you're not at the end of the list 
 		nodes.push_back(node); //add node to new list 
 		node = node->next; //go to next 
 	}
 	while (nodes.size() != 0) { //while there is still stuff left in nodes 
-		int random = nodes[rand() % nodes.size()]; //get random between start and end of the nodes[] vector 
+		int random = rand() % nodes.size(); //get random between start and end of the nodes[] vector 
 		new_nodes.push_back(nodes[random]); //add that node you grabbed to new_nodes 
 		nodes.erase(nodes.begin() + random); //remove that node, thereby decreasing the nodes.size() 
 	}
@@ -69,7 +69,7 @@ void trail::randomize() { //reorder all the nodes
 	}
 	first = new_nodes[0]; //make new first node 
 }
-string trail::checkStatus(int[] stats) {
+string trail::checkStatus(int* stats) {
 	turnCounter++;
 	for (int i = 0;i < 4;i++) {
 		if (stats[i] <= 0) {
@@ -84,7 +84,7 @@ string trail::checkStatus(int[] stats) {
 	return "";
 }
 
-string trail::win(int[] stats) {
+string trail::win(int* stats) {
 	int finalscore = 0;
 	string finale;
 	for (int i = 0;i < 4;i++) {
@@ -106,52 +106,66 @@ string trail::win(int[] stats) {
 	return finale;
 }
 
-void trail::Play(int[] stats) {
-   	 int decision;
-   	 Node events;
+void trail::Play(int* stats) {
+   	bool decision;
+   	current = first;
 	string resolution;
-    	while (resolution == "") {
-       		cout << events.getData() << endl;
+	int value;
+    while (resolution == "") {
+      	cout << current->getData() << endl;
 		cout << "Enter 1 for choice 1 and 2 for choice 2: ";
+        cin >> value;
+     
+		while (value != 1 || value != 2) {
+        	cout << "Please enter a valid choice: ";
         	cin >> value;
+			
+        }
+		if (value == 1) {
+			decision = false;
+		} else if (value == 2) {
+			decision = true;
+		}
 
-        	while (value != 1 || value != 2) {
-        		cout << "Please enter a valid choice: ";
-        		cin >> value;
-        	}
-
-        	decision = (value == 1) ? false : true;
-
-		events.choice(decision, stats);
+		cout << choice(decision, stats);
 		current = current->next;
 
 		resolution = checkStatus(stats);
 	}
+	
 	cout << resolution << endl;
 }
 
-Node::Node(const int[] choice1, const int[] choice2, const string[] events) {}
+Node::Node(const int* choice1, const int* choice2, const string* events) {}
 
 string Node::getData() const {
 	return strings[0];
 }
 
-string Node::choice(bool decision, int[] stats) const {
+string trail::choice(bool decision, int* stats) {
+	string outcome;
+	outcome = current->choice(decision, stats);
+	current = current->next; // changes the current Node to the next one
+	
+	return outcome;
+	
+	
+}
+
+string Node::choice(bool decision, int* stats) {
 	int event = 1 + (int)decision; // finds which decision is made
 
 	// Adds the choice stats to player stats
 	if (event == 1) {
 		for (int i = 0;i < 4;i++) {
-			stats[i] += choices1[i];
+			stats[i] += choice1[i];
 		}
     	} else {
         	for (int i = 0;i < 4;i++) {
-            	stats[i] += choices2[i];
+            	stats[i] += choice2[i];
         	}
     	}
 	string outcome = strings[event];
-
-	current = next; // changes the current Node to the next one
 
 	return outcome; // outputs the event choice
 }
