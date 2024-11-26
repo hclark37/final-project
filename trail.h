@@ -1,14 +1,23 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <cstdlib>
+#include <string>
+
 #ifndef TRAIL_H
 #define TRAIL_H
+
+using namespace std;
 
 class Node {
 
 	friend class trail;
 
 	public:
-		Node(const int[], const int[], const string[]);     
+		Node(const int*, const int*, const string*);     
 		string getData() const; // gets event occurring
-		string choice(bool, int[]) const; //changes stats and returns choice event
+		string choice(bool, int*); //changes stats and returns choice event
 	private:
 		string strings[3];
 		int choice1[4];
@@ -19,13 +28,14 @@ class Node {
 class trail {
  public:
 	trail();  
-	void addNode(const int[], const int[], const string[])
+	void addNode(const int*, const int*, const string*);
 	void randomize(); //store pointers in vector, shuffle vector, change pointers in nodes
-	string checkStatus(int[]); //checks for death; checkStatus == "" means death
-	string win(int[]);
-	void Play();
+	string checkStatus(int*); //checks for death; checkStatus == "" means death
+	string win(int*);
+	void Play(int* stats);
+	string choice(bool, int*);
  private:
-	Node *newNode(const int &);
+	Node *newNode(const int* choice1, const int* choice2, const string* outputs);
 	Node *first;
 	Node *current;
 	int turnCounter;
