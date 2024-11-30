@@ -35,7 +35,6 @@ trail::trail() : first(NULL) {
 	randomize();
 
 	turnCounter = 0;
-	current = first;
 }
 
 void trail::addNode(const int* choice1, const int* choice2, const string* outputs) {
@@ -69,21 +68,29 @@ void trail::randomize() { //reorder all the nodes
 		}
 	}
 	first = new_nodes[0]; //make new first node 
+	current = first;
 	
 }
 
 string trail::checkStatus(int* stats) {
 	turnCounter++;
-	for (int i = 0; i < 4; i++) {
+	/*for (int i = 0; i < 4; i++) {
+		cout << stats[i] << " ";
+	}*/
+	// cout << stats[0] << " " << stats[1] << " " << stats[2] << " " << stats[3] << endl;
+	// for debugging 
+	for (int i = 0; i < 4; ++i) {
 		if (stats[i] <= 0) {
 			return deathMessages[i];
-		} else if (stats[i] >= 100) {
+		} 
+		if (stats[i] >= 100) {
 			return deathMessages[i + 4];
 		}
 	}
 	if (turnCounter == 20) {
 		return win(stats);
 	}
+	
 	return "";
 }
 
@@ -115,6 +122,7 @@ void trail::Play(int* stats) {
 	string resolution = "";
 	int value;
     while (resolution == "") {
+		
       	cout << current->getData() << endl;
 		cout << "Enter 1 for choice 1 and 2 for choice 2: ";
         cin >> value;
@@ -131,15 +139,25 @@ void trail::Play(int* stats) {
 		}
 
 		cout << choice(decision, stats);
+		
+		resolution = checkStatus(stats); 
+		/*for (int i = 0; i < 4; i++) { 
+			cout << stats[i] << " ";
+		}*/
+		cout << endl;
 
-		resolution = checkStatus(stats);
+		if (resolution != "") {
+			cout << resolution << endl;
+			break;
+		}
+		
 		cout << resolution << endl;
+		
 		//add fix for if no next node 
 		if (current->next == NULL) {
-			randomize();
+			randomize(); //part that breaks 
 		}
 	}
-	cout << resolution << endl;
 }
 
 Node::Node(const int* choice1, const int* choice2, const string* events) {
