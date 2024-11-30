@@ -102,7 +102,7 @@ string trail::win(int* stats) {
         finalscore += (int)stats[i];
     }
 
-    cout << endl << "Final score: " << finalscore << endl;
+    cout << endl << "Final score: " << finalscore;
 
     if (finalscore >= 300) {
         return ending[0];
