@@ -82,10 +82,10 @@ string trail::checkStatus(int* stats) {
 	// for debugging 
 	for (int i = 0; i < 4; ++i) {
 		if (stats[i] <= 0) {
-			return deathMessages[i];
+			return deathMessages[2i];
 		} 
 		if (stats[i] >= 100) {
-			return deathMessages[i + 4];
+			return deathMessages[2i + 1];
 		}
 	}
 	if (turnCounter == 20) {
