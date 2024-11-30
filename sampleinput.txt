@@ -10,34 +10,45 @@ This is a sample choice 2 output. It outputs when you output for choice 2.
 0
 0
 Parker Dawes says that your shoes are ugly and that you should get a haircut, then slaps you in the face. Do you 1. cry 2. punch him back? 
-You started crying, and he laughed at you. And then, he made you write him a check for 50 dollars. 
+You started crying, he laughed at you, and you gave him your lunch money.
 You punched him back, and he started crying. 
--50
-0
--15
 -20
 0
+-2
+-10
 0
 0
-20
+-5
+15
+Harrison Clark says that your shirt is ugly and that you should get a perm, then spits you in the face. Do you 1. cry 2. punch him back? 
+You started crying, he laughed at you, and you gave him your lunch.
+You punched him back, and he started crying. 
+0
+-10
+-2
+-20
+0
+5
+-5
+15
 You see a hand-shaped hole in the ground that seems to be very deep. Do you 1. put your hand in it 2. walk away? 
 You put your hand in the hole, and you could feel a hand touch it from the other side. 
 You walked away. 
 0
 0
 0
--20
+-10
 0
 0
 0
-0
+5
 There's a vending machine that seems like it has a bunch of bags of chips stuck in it. You think that if you were to just get that chip one more time, you'd get all the previous ones. Do you 1. buy a bag of chips or 2. not buy a bag of chips? 
-You try to buy another bag of chips, hoping that they'll all tumble down. They didn't. You lost 3 dollars. 
+You try to buy another bag of chips, hoping that they'll all tumble down. They didn't. 
 You walked away, stomach hungry. 
 -5
--5
 0
--10
+0
+-5
 0
 -5
 0
@@ -45,17 +56,17 @@ You walked away, stomach hungry.
 There's a vending machine that seems like it has a bunch of bags of chips stuck in it. You think that if you were to just get that chip one more time, you'd get all the previous ones. Do you 1. buy a bag of chips or 2. not buy a bag of chips? 
 You try to buy another bag of chips, and all of them fall out! You got like 5 bags of chips for the price of 1! 
 You walked away, stomach hungry. 
-40
-10
-10
+-5
+15
+-10
+0
 0
 -5
 0
 5
-1
 This is a question.
-Right answer! +5 to all stats! 
-Wrong answer! -5 to all stats! 
+Right answer!
+Wrong answer!
 5
 5
 5
@@ -67,14 +78,14 @@ Wrong answer! -5 to all stats!
 You're trying to go to school one day, when your car says that the air is low on one of your tires. Do you 1. ignore it and drive to school 2. go to a gas station and spend a dollar at the air pump to repump it up?
 You suddenly lost control of your car driving on the interstate because of a flat tire, and your car flipped over a bunch of times and you got really hurt and your car is totalled! 
 You went to school just fine after pumping up your car, but that's kind of annoying. 
--50
-0
--50
-0
--1
 0
 0
--1
+-40
+-10
+-5
+0
+0
+5
 It's about to start raining. Do you 1. buy an umbrella to help yourself not get wet 2. go without an umbrella? 
 You bought an umbrella, and you got struck by lightning! Ouch! 
 You didn't buy an umbrella, but you got really wet. 
@@ -84,7 +95,7 @@ You didn't buy an umbrella, but you got really wet.
 0
 0
 0
--5
+0
 -5
 At the store, you can buy a pack of 6 rolls of toilet paper for 5 dollars, or 12 rolls of toilet paper for 8 dollars? Which do you buy? 1. The 6 roll pack 2. The 12 roll pack
 You bought the 6 roll pack. 
@@ -100,46 +111,46 @@ You bought the 12 roll pack.
 It's the end of the night and you're about to go to bed. Do you brush your teeth? 1. yes 2. no 
 You brush your teeth. Clean teeth.
 You're a stinky person. 
-0
+-1
 0
 5
+1
+0
+0
+-5
+-1
+You have the option to buy either a Playstation or an Xbox. 1. Playstation 2. Xbox 
+You bought a Playstation. 
+You bought an XBox. 
+-5
 0
 0
 0
 -5
-0
-You have the option to buy either a Playstation or an Xbox. 1. Playstation 2. Xbox 
-You bought a Playstation. 
-You bought an XBox. 
-0
-0
-0
-0
-0
 0
 0
 0
 It's Christmas, and you're trying to buy something for your girlfriend. She asked for this fancy waterbottle, and you want to buy it for her in her favorite color. But, what was her favorite color?... 1. Green 2. Blue?
 You bought the green one, thinking that was her favorite color. It was not! What a mistake! She hated it. 
 You bought the blue one, thinking that was her favorite color. You were right! She loved it. 
+-5
+0
+0
+-10
+-5
 0
 0
 10
-10
-0
-0
--20
--20
 You are at McDonalds. Do you want a 1. Big Mac or a 2. Quarter Pounder? 
 Very tasty Big Mac. Very big sandwich too- very filling.
 Good Quarter Pounder. Very tasty. :) 
--2
-20
-5
+-4
+8
+-3
 0
 -2
-12
 5
+-2
 0
 You're taking a math test at your school. You have this problem, where you're trying to solve what the integral of x^2 is. You're thinking, well, is it 1. x^3/3 or 2. 2x? You really should have studied for this math test more... 
 A week later, you get your score back and, you got that problem right! Heck yeah! 
@@ -147,18 +158,18 @@ A week later, you get your score back and... that was wrong... :(
 0
 0
 5
-10
+5
 0
 0
 -5
--10
+-5
 Your friends at the lunch table are telling you to drink an entire bottle of Ketchup in one sitting. They say they'll give you 5 dollars if you do it. Do you 1. do it 2. not do it? 
 That was way too much Ketchup. You're feeling sick. And very displeased with the flavor. However, you got 5 dollars and you are not hungry anymore at ALL. You never wanna see food again, in fact. 
 You didn't do it. You're a wuss. 
 5
-40
--40
--40
+10
+-10
+-2
 0
 0
 3
@@ -166,33 +177,77 @@ You didn't do it. You're a wuss.
 You get a letter in the mail. The WWE wants you to join it as a wrestler. They say that they'll pay you $30 dollars a match to wrestle. Your performer name is going to be Jack Cena. Do you 1. accept the opportunity and go on on Monday night for your first match 2. decline and tell everyone for the rest of your life that you were invited to the WWE but didn't join it? 
 You agree. Hulk Hogan chokeslams you through a table. You made 30 bucks, though. 
 You decline. You regret this decision for the rest of your life. 
-0
--20
-0
-20
+7
 0
 0
+7
 0
--15
+0
+0
+-4
 It's election day. You can either vote for 1. Kamala Harris 2. Donald Trump. 
 You voted for Kamala Harris.
 You voted for Donald Trump. 
 0
 0
 0
+-1
 0
 0
 0
-0
-0
+-1
 You're walking and you see a lamp. You take it home with you and when you get home you rub it. A genie pops out of the lamp and tells you that you get one wish, but there are actually only two choices- and you have to make one. You can wish 1. to have hotdogs for fingers 2. to have hotdogs for toes
-You now have hotdogs for fingers. Probably the wrong choice.
+You now have hotdogs for fingers. Your fingers look tasty.
 You now have hotdogs for toes. I mean- you could probably just get those cut off or something right? 
 0
-10
--5
--10
+5
+-4
+-2
 0
-10
+5
+-2
+-4
+Parker Dawes wants to be friends with you. Do you 1. be friends with him 2. deny friendship?
+You two make great friends!
+He starts to cry and walks away.
+-5
+0
+5
+5
+2
+0
 -2
 -5
+Harrison Clark wants to go hang out. Do you 1. go hang out with him 2. lie about having homework?
+You two go to the amusement park and have fun
+He knows you lied that you were going to play Call of Duty instead.
+-10
+5
+2
+5
+0
+0
+-2
+-4
+UTK Football has one final play to get a touchdown to win the game. Should they 1. run the ball 2. pass the ball?
+They ran and SCORED! TOUCHDOWN!
+They passed and it was COMPLETED! TOUCHDOWN!
+0
+0
+0
+5
+0
+0
+0
+5
+It's almost dinner time. What should you make 1. ramen 2. eggs and bacon?
+Ramen isn't too filling but fine.
+Breakfast for dinner is nice.
+-2
+2
+-2
+0
+-5
+5
+2
+0
