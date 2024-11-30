@@ -39,8 +39,8 @@ class trail {
 	Node *first;
 	Node *current;
 	int turnCounter;
-	string deathMessages[9] = {"test", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test9"};
-	string endings[4] = {"1test", "2test", "3test", "4test"};
+	string deathMessages[8] = {"You became too poor and couldn't pay for basic survival needs.", "You became rich enough that you were robbed.", "You starved.", "You ate too much.", "You were too ill to carry on.", "Your body over stimulated itself.", "Being too paranoid, you drove yourself into insanity.", "Being too relaxed, you were jumped."};
+    	string endings[4] = {"You came out better off after your journey!!", "You benefited from this journey!", "You struggled a little but complete your journey.", "You barely came out of this journey alive but survived."};
 };
 
 
