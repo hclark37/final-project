@@ -96,25 +96,23 @@ string trail::checkStatus(int* stats) {
 }
 
 string trail::win(int* stats) {
-	int finalscore = 0;
-	string finale;
-	for (int i = 0;i < 4;i++) {
-		finalscore += stats[i];
-	}
-	if (finalscore >= 300) {
-		finale += "You are thriving.\n Final score: ";
-		finale += finalscore;
-	} else if (finalscore >= 200) {
-		finale += "You are made it to your destination with little problem.\n Final score: ";
-		finale += finalscore;
-	} else if (finalscore >= 100) {
-		finale += "You are hurting a bit from the long journey. \n Final score: ";
-		finale += finalscore;
-	} else {
-		finale += "You made it... somehow...\n Final score: ";
-		finale += finalscore;
-	}
-	return finale;
+    int finalscore = 0;
+    string finale;
+    for (int i = 0;i < 4;i++) {
+        finalscore += (int)stats[i];
+    }
+
+    cout << endl << "Final score: " << finalscore << endl;
+
+    if (finalscore >= 300) {
+        return ending[0];
+    } else if (finalscore >= 200) {
+        return ending[1];
+    } else if (finalscore >= 100) {
+        return ending[2];
+    } else {
+        return ending[3];
+    }
 }
 
 void trail::Play(int* stats) {
