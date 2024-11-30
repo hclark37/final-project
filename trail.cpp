@@ -132,9 +132,9 @@ void trail::Play(int* stats) {
 			
         }
 		if (value == 1) {
-			decision = true;
-		} else if (value == 2) {
 			decision = false;
+		} else if (value == 2) {
+			decision = true;
 		}
 
 		cout << choice(decision, stats);
@@ -182,17 +182,16 @@ string trail::choice(bool decision, int* stats) {
 }
 
 string Node::choice(bool decision, int* stats) {
-	
-	// Adds the choice stats to player stats
-	if (decision == true) {
-		for (int i = 0; i < 4; i++) {
-			stats[i] += choice1[i];
-		}
-    } else if (decision == false) {
+    // Adds the choice stats to player stats
+    if (decision) {
         for (int i = 0; i < 4; i++) {
-           	stats[i] += choice2[i];
-       	}
+            stats[i] += choice2[i];
+        }
+    } else {
+        for (int i = 0; i < 4; i++) {
+            stats[i] += choice1[i];
+        }
     }
-	
-	return strings[(int)decision + 1]; // outputs the event choice
+
+    return strings[(int)decision + 1]; // outputs the event choice
 }
