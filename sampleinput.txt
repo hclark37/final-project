@@ -45,7 +45,6 @@ You walked away, stomach hungry.
 There's a vending machine that seems like it has a bunch of bags of chips stuck in it. You think that if you were to just get that chip one more time, you'd get all the previous ones. Do you 1. buy a bag of chips or 2. not buy a bag of chips? 
 You try to buy another bag of chips, and all of them fall out! You got like 5 bags of chips for the price of 1! 
 You walked away, stomach hungry. 
--5
 40
 10
 10
@@ -53,7 +52,8 @@ You walked away, stomach hungry.
 -5
 0
 5
-1 or 2? 
+1
+This is a question.
 Right answer! +5 to all stats! 
 Wrong answer! -5 to all stats! 
 5
@@ -166,7 +166,6 @@ You didn't do it. You're a wuss.
 You get a letter in the mail. The WWE wants you to join it as a wrestler. They say that they'll pay you $30 dollars a match to wrestle. Your performer name is going to be Jack Cena. Do you 1. accept the opportunity and go on on Monday night for your first match 2. decline and tell everyone for the rest of your life that you were invited to the WWE but didn't join it? 
 You agree. Hulk Hogan chokeslams you through a table. You made 30 bucks, though. 
 You decline. You regret this decision for the rest of your life. 
-30
 0
 -20
 0
@@ -197,25 +196,3 @@ You now have hotdogs for toes. I mean- you could probably just get those cut off
 10
 -2
 -5
-Are you enjoying this game? 1. yes 2. no 
-Thanks!
-I hate you. 
-0
-0
-0
-0
--10000
--10000
--10000
--10000
-You're flying a plane- you're a pilot. There's another plane in the sky, and the pilot looks at you through their window and signals that they want to have a race with you. Should you 1. speed up and race with him 2. not do that- that's against the law. 
-The airplane police pull you over midflight- little did they realize, you can't stop a plane in the air. Your plane tumbles to the ground, in a violent crash. And you get an air ticket for speeding. 
-You don't do all that. What a wuss.
--20
-0
--20
--10
-0
-0
-0
--2
