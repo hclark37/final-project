@@ -132,9 +132,9 @@ void trail::Play(int* stats) {
 			
         }
 		if (value == 1) {
-			decision = false;
-		} else if (value == 2) {
 			decision = true;
+		} else if (value == 2) {
+			decision = false;
 		}
 
 		cout << choice(decision, stats);
