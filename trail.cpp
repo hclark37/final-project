@@ -55,6 +55,7 @@ void trail::randomize() { //reorder all the nodes
 		nodes.push_back(node); //add node to new list 
 		node = node->next; //go to next 
 	}
+	srand((unsigned)time(NULL));
 	while (nodes.size() != 0) { //while there is still stuff left in nodes 
 		int random = rand() % nodes.size(); //get random between start and end of the nodes[] vector 
 		new_nodes.push_back(nodes[random]); //add that node you grabbed to new_nodes 
