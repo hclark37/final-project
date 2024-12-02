@@ -125,7 +125,7 @@ void trail::Play(int* stats) {
     while (resolution == "") {
 		cout << endl << endl << endl << endl << endl;
 		cout << "Your stats" << endl;
-		cout << "Health: " << stats[0] << endl;
+		cout << "Money: " << stats[0] << endl;
 		cout << "Food:   " << stats[1] << endl;
 		cout << "Health: " << stats[2] << endl;
 		cout << "Sanity: " << stats[3] << endl << endl;
@@ -159,6 +159,7 @@ void trail::Play(int* stats) {
 
 		if (resolution != "") {
 			system("clear");
+			cout << endl << endl << endl << endl << endl;
 			cout << "Your stats" << endl;
 			cout << "Health: " << stats[0] << endl;
 			cout << "Food:   " << stats[1] << endl;
