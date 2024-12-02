@@ -27,20 +27,23 @@ class Node {
 
 class trail {
  public:
-	trail();  
+	trail(string);  
 	void addNode(const int*, const int*, const string*);
 	void randomize(); //store pointers in vector, shuffle vector, change pointers in nodes
 	string checkStatus(int*); //checks for death; checkStatus == "" means survival
 	string win(int*);
 	void Play(int* stats);
 	string choice(bool, int*);
+	void shop(int*);
+	void titleScreen(int*);
+	
  private:
 	Node *newNode(const int* choice1, const int* choice2, const string* outputs);
 	Node *first;
 	Node *current;
 	int turnCounter;
 	string deathMessages[8] = {"You became too poor and couldn't pay for basic survival needs.", "You became rich enough that you were robbed.", "You starved.", "You ate too much.", "You were too ill to carry on.", "Your body over stimulated itself.", "Being too paranoid, you drove yourself into insanity.", "Being too relaxed, you were jumped."};
-    	string endings[4] = {"You came out better off after your journey!!", "You benefited from this journey!", "You struggled a little but complete your journey.", "You barely came out of this journey alive but survived."};
+    string endings[4] = {"You came out better off after your journey!!", "You benefited from this journey!", "You struggled a little but complete your journey.", "You barely came out of this journey alive but survived."};
 };
 
 
