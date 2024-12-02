@@ -8,9 +8,10 @@
 
 using namespace std;
 
-trail::trail() : first(NULL) { 
+trail::trail(string filename) : first(NULL) { 
 
-	ifstream fin("sampleinput.txt");
+	ifstream fin(filename);
+	//add error checking
 	string line;
 	string outputs[3];
 	int choice1[4];
@@ -70,7 +71,6 @@ void trail::randomize() { //reorder all the nodes
 	}
 	first = new_nodes[0]; //make new first node 
 	current = first;
-	
 }
 
 string trail::checkStatus(int* stats) {
@@ -105,39 +105,51 @@ string trail::win(int* stats) {
     cout << endl << "Final score: " << finalscore;
 
     if (finalscore >= 300) {
-        return ending[0];
+        return endings[0];
     } else if (finalscore >= 200) {
-        return ending[1];
+        return endings[1];
     } else if (finalscore >= 100) {
-        return ending[2];
+        return endings[2];
     } else {
-        return ending[3];
+        return endings[3];
     }
 }
 
 void trail::Play(int* stats) {
+	system("clear");
    	bool decision;
    	current = first;
 	string resolution = "";
 	int value;
+	string previousOutput = "";
     while (resolution == "") {
-		
+		cout << endl << endl << endl << endl << endl;
+		cout << "Your stats" << endl;
+		cout << "Health: " << stats[0] << endl;
+		cout << "Food:   " << stats[1] << endl;
+		cout << "Health: " << stats[2] << endl;
+		cout << "Sanity: " << stats[3] << endl << endl;
+		if (previousOutput != "") {
+			cout << previousOutput << endl << endl;
+		}
       	cout << current->getData() << endl;
-		cout << "Enter 1 for choice 1 and 2 for choice 2: ";
-        cin >> value;
-     
-		while (value != 1 && value != 2) {
-        	cout << "Please enter a valid choice: ";
-        	cin >> value;
-			
+		cout << "Enter 1 for choice 1 and 2 for choice 2: ";     
+		while (cin >> value) {
+        	if (value == 1) {
+				break;
+			} else if (value == 2) {
+				break;
+			}
+			cout << "Please enter a valid choice: ";
+
         }
+		
 		if (value == 1) {
 			decision = false;
 		} else if (value == 2) {
 			decision = true;
 		}
-
-		cout << choice(decision, stats);
+		previousOutput = choice(decision, stats);
 		
 		resolution = checkStatus(stats); 
 		/*for (int i = 0; i < 4; i++) { 
@@ -146,17 +158,43 @@ void trail::Play(int* stats) {
 		cout << endl;
 
 		if (resolution != "") {
+			system("clear");
+			cout << "Your stats" << endl;
+			cout << "Health: " << stats[0] << endl;
+			cout << "Food:   " << stats[1] << endl;
+			cout << "Health: " << stats[2] << endl;
+			cout << "Sanity: " << stats[3] << endl << endl << endl;
+			cout << previousOutput << endl << endl;
 			cout << resolution << endl;
 			break;
 		}
 		
-		cout << resolution << endl;
+		cout << resolution;
 		
 		//add fix for if no next node 
 		if (current->next == NULL) {
 			randomize(); //part that breaks 
 		}
+		system("clear");
 	}
+	for (int i = 0; i < 4; i++) {
+		stats[i] = 50;
+	}
+	
+	cout << endl << "Would you like to continue? (yes/no): ";
+	while (cin >> resolution) {
+		if (resolution == "no") {
+			break;
+		}
+		if (resolution == "yes") {
+			randomize();
+			Play(stats);
+			return;
+		}
+	}
+	randomize();
+	titleScreen(stats);
+	return;
 }
 
 Node::Node(const int* choice1, const int* choice2, const string* events) {
@@ -194,4 +232,33 @@ string Node::choice(bool decision, int* stats) {
     }
 
     return strings[(int)decision + 1]; // outputs the event choice
+}
+
+void trail::shop(int* stats) {
+	
+	
+	
+}
+
+void trail::titleScreen(int* stats) {
+	int value;
+	system("clear");
+	cout << endl << endl << endl << endl << endl << "Parker and Harrison's Game" << endl << endl << endl << "1. Play" << endl << "2. Add Events" << endl << "3. Quit" << endl << endl << endl << "Enter your choice: ";
+	while (cin >> value) {
+		switch(value) {
+			case 1:
+				Play(stats);
+				return;
+			case 2:
+				
+				break;
+						
+		}
+		if (value == 3) {
+			return;
+		}
+		
+	}
+	return;
+	
 }
