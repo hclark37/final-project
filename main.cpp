@@ -14,8 +14,9 @@ int main(int argc,char* argv[]) {
 	}
 	
 	int stats[] = {50, 50, 50, 50};
-
-	trail theTrail;
+	string inputFile = argv[1];
+	
+	trail theTrail(inputFile);
 
     	theTrail.Play(stats);
 
