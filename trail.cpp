@@ -102,17 +102,20 @@ string trail::win(int* stats) {
         finalscore += (int)stats[i];
     }
 
-    cout << endl << "Final score: " << finalscore;
+    finale += "Final score: ";
+    finale += to_string(finalscore);
+    finale += "\n";
 
     if (finalscore >= 300) {
-        return endings[0];
+        finale += endings[0];
     } else if (finalscore >= 200) {
-        return endings[1];
+        finale += endings[1];
     } else if (finalscore >= 100) {
-        return endings[2];
+        finale += endings[2];
     } else {
-        return endings[3];
+        finale += endings[3];
     }
+	return finale;
 }
 
 void trail::Play(int* stats) {
@@ -141,7 +144,6 @@ void trail::Play(int* stats) {
 				break;
 			}
 			cout << "Please enter a valid choice: ";
-
         }
 		
 		if (value == 1) {
@@ -150,18 +152,13 @@ void trail::Play(int* stats) {
 			decision = true;
 		}
 		previousOutput = choice(decision, stats);
-		
 		resolution = checkStatus(stats); 
-		/*for (int i = 0; i < 4; i++) { 
-			cout << stats[i] << " ";
-		}*/
-		cout << endl;
 
 		if (resolution != "") {
 			system("clear");
 			cout << endl << endl << endl << endl << endl;
 			cout << "Your stats" << endl;
-			cout << "Health: " << stats[0] << endl;
+			cout << "Money: " << stats[0] << endl;
 			cout << "Food:   " << stats[1] << endl;
 			cout << "Health: " << stats[2] << endl;
 			cout << "Sanity: " << stats[3] << endl << endl << endl;
@@ -169,8 +166,22 @@ void trail::Play(int* stats) {
 			cout << resolution << endl;
 			break;
 		}
-		
-		cout << resolution;
+		if (turnCounter == 6 || turnCounter == 13) {
+  			shop(stats);
+	        	resolution = checkStatus(stats);
+ 	        	if (resolution != "") {
+	                	system("clear");
+	                	cout << endl << endl << endl << endl << endl;
+	                	cout << "Your stats" << endl;
+	                	cout << "Money: " << stats[0] << endl;
+  	              		cout << "Food:   " << stats[1] << endl;
+  	              		cout << "Health: " << stats[2] << endl;
+  	              		cout << "Sanity: " << stats[3] << endl << endl << endl;
+	   	        	cout << previousOutput << endl << endl;
+   	            		cout << resolution << endl;
+   	        		break;
+         		}
+        	}
 		
 		//add fix for if no next node 
 		if (current->next == NULL) {
@@ -178,22 +189,20 @@ void trail::Play(int* stats) {
 		}
 		system("clear");
 	}
-	for (int i = 0; i < 4; i++) {
-		stats[i] = 50;
-	}
 	
 	cout << endl << "Would you like to continue? (yes/no): ";
 	while (cin >> resolution) {
-		if (resolution == "no") {
-			break;
-		}
 		if (resolution == "yes") {
+			for (int i = 0; i < 4; i++) {
+                		stats[i] = 50;
+            		}
 			randomize();
 			Play(stats);
 			return;
+		} else if (resolution == "no") {
+			break;
 		}
 	}
-	randomize();
 	titleScreen(stats);
 	return;
 }
@@ -236,9 +245,51 @@ string Node::choice(bool decision, int* stats) {
 }
 
 void trail::shop(int* stats) {
-	
-	
-	
+	int value;
+
+    	system("clear");
+    	cout << endl << endl << endl << endl << endl;
+    	cout << "Your stats" << endl;
+    	cout << "Money:  " << stats[0] << endl;
+    	cout << "Food:   " << stats[1] << endl;
+    	cout << "Health: " << stats[2] << endl;
+    	cout << "Sanity: " << stats[3] << endl << endl << endl;
+
+    	cout << "Would you like to buy anything from the Dawes & Clark Shop?: " << endl;
+    	cout << "1. A Pristine CFA Sandwich" << endl;
+    	cout << "2. A Cinderella Band-Aid" << endl;
+    	cout << "3. A Fidget Spinner" << endl;
+    	cout << "4. Save your money" << endl << endl;
+
+    	while (true) {
+        	cout << "Enter your choice (1-4): ";
+        	cin >> value;
+        	if (!cin.fail()) break;
+    	}
+
+    	while (true) {
+        	switch(value) {
+            		case 1:
+                	stats[0] -= 10;
+                	stats[1] += 15;
+                	break;
+            	case 2:
+                	stats[0] -= 10;
+                	stats[2] += 15;
+                	break;
+            	case 3:
+                	stats[0] -= 10;
+                	stats[3] += 15;
+                	break;
+            	case 4:
+                	stats[0] += 5;
+        	}
+        	if (value >= 1 && value <= 4) {
+            		return;
+        	}
+        	cout << "Please enter a valid choice (1-4): ";
+        	cin >> value;
+	}
 }
 
 void trail::titleScreen(int* stats) {
