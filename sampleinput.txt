@@ -230,8 +230,8 @@ He knows you lied that you were going to play Call of Duty instead.
 -2
 -4
 UTK Football has one final play to get a touchdown to win the game. Should they 1. run the ball 2. pass the ball?
-They ran and SCORED! TOUCHDOWN!
-They passed and it was COMPLETED! TOUCHDOWN!
+They ran and SCORED! TOUCHDOWN TENNESSEE!
+They passed and it was COMPLETED! TOUCHDOWN TENNESSEE!
 0
 0
 0
@@ -251,3 +251,36 @@ Breakfast for dinner is nice.
 5
 2
 0
+Waking up, you feel your stomach twist a little. Would you 1. Go to the doctor 2. Continue on with your day?
+You went to the doctor and found out you have a virus. He gave you medicine for it.
+Going along with your day, you suddenly vomit. Well that isn't good.
+-5
+0
+10
+3
+3
+-2
+-7
+-2
+Waking up, you feel your stomach twist a little. Would you 1. Go to the doctor 2. Continue on with your day?
+You went to the doctor and found out that you were just hungry.
+You went to work and had a good day.
+-5
+0
+3
+5
+10
+0
+2
+0
+Snuggling up next to your cat, a loud sound goes off and causes you cat to scratch you. Do you 1. Apply some Polysporin on the scratch 2. Comfort you cat and go back to snuggling?
+It stings a little but the scratch will not get infected now.
+You find scratches like these all the time. Cat time is all that matters!
+-1
+0
+7
+-5
+0
+0
+-4
+4
