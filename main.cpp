@@ -18,7 +18,7 @@ int main(int argc,char* argv[]) {
 	
 	trail theTrail(inputFile);
 
-    	theTrail.Play(stats);
+    	theTrail.titleScreen(stats);
 
 	return 0;
 }
