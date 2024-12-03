@@ -385,7 +385,10 @@ void trail::Add(int* stats) {
 	string choice, line;
 	int number;
 	ofstream output(fileName, std::ios::app);
+	
 	system("clear");
+	
+	cin.ignore();
 	cout << "Event output (string): ";
 	getline(cin, line);
 	output << line << endl;
