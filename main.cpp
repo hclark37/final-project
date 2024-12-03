@@ -18,7 +18,7 @@ int main(int argc,char* argv[]) {
 	
 	trail theTrail(inputFile);
 
-    	theTrail.titleScreen(stats, inputFile);
+    theTrail.titleScreen(stats);
 
 	return 0;
 }
