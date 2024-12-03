@@ -32,7 +32,7 @@ class trail {
 	void randomize(); //store pointers in vector, shuffle vector, change pointers in nodes
 	string checkStatus(int*); //checks for death; checkStatus == "" means survival
 	string win(int*);
-	void Play(int* stat, string);
+	void Play(int*);
 	string choice(bool, int*);
 	void shop(int*);
 	void titleScreen(int*);
