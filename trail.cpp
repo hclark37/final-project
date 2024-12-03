@@ -36,6 +36,8 @@ trail::trail(string filename) : first(NULL) {
 	randomize();
 
 	turnCounter = 0;
+	fin.close();
+	return;
 }
 
 void trail::addNode(const int* choice1, const int* choice2, const string* outputs) {
