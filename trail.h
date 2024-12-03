@@ -35,14 +35,18 @@ class trail {
 	void Play(int* stat, string);
 	string choice(bool, int*);
 	void shop(int*);
-	void titleScreen(int*, string);
-	void Add(int*, string);
+	void titleScreen(int*);
+	void Add(int*);
+	void settings(int*);
 	
  private:
 	Node *newNode(const int* choice1, const int* choice2, const string* outputs);
 	Node *first;
 	Node *current;
+	string fileName;
 	int turnCounter;
+	int totalTurns;
+	int shopFrequency;
 	string deathMessages[8] = {"You became too poor and couldn't pay for basic survival needs.", "You became rich enough that you were robbed.", "You starved.", "You ate too much.", "You were too ill to carry on.", "Your body over stimulated itself.", "Being too paranoid, you drove yourself into insanity.", "Being too relaxed, you were jumped."};
     string endings[4] = {"You came out better off after your journey!!", "You benefited from this journey!", "You struggled a little but complete your journey.", "You barely came out of this journey alive but survived."};
 };
