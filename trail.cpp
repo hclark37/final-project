@@ -118,7 +118,7 @@ string trail::win(int* stats) {
 	return finale;
 }
 
-void trail::Play(int* stats) {
+void trail::Play(int* stats, string fileName) {
 	system("clear");
    	bool decision;
    	current = first;
@@ -197,13 +197,13 @@ void trail::Play(int* stats) {
                 		stats[i] = 50;
             		}
 			randomize();
-			Play(stats);
+			Play(stats, fileName);
 			return;
 		} else if (resolution == "no") {
 			break;
 		}
 	}
-	titleScreen(stats);
+	titleScreen(stats, fileName);
 	return;
 }
 
@@ -292,19 +292,18 @@ void trail::shop(int* stats) {
 	}
 }
 
-void trail::titleScreen(int* stats) {
+void trail::titleScreen(int* stats, string fileName) {
 	int value;
 	system("clear");
 	cout << endl << endl << endl << endl << endl << "Parker and Harrison's Game" << endl << endl << endl << "1. Play" << endl << "2. Add Events" << endl << "3. Quit" << endl << endl << endl << "Enter your choice: ";
 	while (cin >> value) {
 		switch(value) {
 			case 1:
-				Play(stats);
+				Play(stats, fileName);
 				return;
 			case 2:
-				
-				break;
-						
+				Add(stats, fileName);
+				return;
 		}
 		if (value == 3) {
 			return;
@@ -312,5 +311,59 @@ void trail::titleScreen(int* stats) {
 		
 	}
 	return;
+}
+
+void trail::Add(int* stats, string fileName) {
+	string choice;
+	int number;	
+	ofstream output(fileName, std::ios::app);
+	system("clear");
+	cout << "Event output (string): ";
+	cin >> choice; 
+	output << endl << choice << endl;
+	cout << "Choice 1 output (string): ";
+	cin >> choice; 
+	output << choice << endl;
+	cout << "Choice 2 output (string): ";
+	cin >> choice; 
+	output << choice << endl;
+	cout << "Choice 1 stats (integers)" << endl;
+	cout << "Money:  ";
+	cin >> number;
+	output << number << endl;
+	cout << "Food:   ";
+	cin >> number;
+	output << number << endl;
+	cout << "Health: ";
+	cin >> number;
+	output << number << endl;
+	cout << "Sanity: ";
+	cin >> number;
+	output << number << endl;
+	cout << "Choice 2 stats (integers)" << endl;
+	cout << "Money:  ";
+	cin >> number;
+	output << number << endl;
+	cout << "Food:   ";
+	cin >> number;
+	output << number << endl;
+	cout << "Health: ";
+	cin >> number;
+	output << number << endl;
+	cout << "Sanity: ";
+	cin >> number;
+	output << number << endl;
+	cout << "Would you like to add another? ";
+	cin >> choice;
+	if (choice == "yes") {
+		output.close();
+		Add(stats, fileName);
+		return;
+	}
+	if (choice == "no")	{
+		output.close();
+		titleScreen(stats, fileName);
+		return;
+	}
 	
 }
