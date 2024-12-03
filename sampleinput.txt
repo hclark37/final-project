@@ -284,3 +284,36 @@ You find scratches like these all the time. Cat time is all that matters!
 0
 -4
 4
+You're walking down a dark alley way. There's a big pile of money on the ground in the middle of the alley way. Do you go towards it, or is it a trap, and do you walk away?
+You walk up and grab the money. Nothing happens, you got a ton of money!
+You walk away. No money for you. 
+50
+0
+0
+40
+0
+0
+0
+0
+You're walking down a dark alley way. There's a big pile of money on the ground in the middle of the alley way. Do you 1. go towards it, or is it a trap, and 2. do you walk away? 
+You walk up and grab the money. Bad people jump out of the shadows and tell you to empty your pockets! They take 50 dollars!
+You walk away. No money for you. 
+-50
+0
+0
+-30
+0
+0
+0
+5
+You are a new farmer who doesn't have a whole lot of cows yet. But, your neighbor has a ton of cows. You wonder if you could go over into his farm and wrangle a bunch of cows, stealing them and them enriching yourself on their milk. Do you 1. take their cows 2. leave their cows to them? 
+You drive your F150 truck up to the farm and take a bunch of the cows, putting them in the back, and drive them home. You're now a very wealthy farmer and nobody ever caught you. 
+You didn't take the cows, and the bank became unwilling to loan you any money because you were so poor, and you ran out of money and went to jail and lost your farm and your wife. 
+40
+10
+0
+25
+-30
+-20
+0
+-30
