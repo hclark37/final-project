@@ -172,7 +172,7 @@ void trail::Play(int* stats) {
 			break;
 		}
 
-		if (shopFrequency == (turnCounter % shopFrequency)) {
+		if ((shopFrequency - 1) == (turnCounter % shopFrequency)) {
 			shop(stats);
 			resolution = checkStatus(stats);
 			if (resolution != "") {
