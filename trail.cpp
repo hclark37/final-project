@@ -9,19 +9,19 @@
 using namespace std;
 
 trail::trail(string filename) : first(NULL) { 
-	fileName = filename;
+	fileName = filename; //save the file name to be used in other parts like add() 
 	ifstream fin(fileName);
 	//add error checking
 	string line;
-	string outputs[3];
+	string outputs[3]; //parts of each node to fill 
 	int choice1[4];
 	int choice2[4];
 
-	while(getline(fin, line)) {
+	while(getline(fin, line)) { //continuously read from file
 		outputs[0] = line;
 		getline(fin, line);
 		outputs[1] = line;
-		getline(fin, line);
+		getline(fin, line); 
 		outputs[2] = line;
 		for (int i = 0; i < 4; i++) {
 			getline(fin, line);
@@ -31,11 +31,11 @@ trail::trail(string filename) : first(NULL) {
 			getline(fin, line);
 			choice2[i] = stoi(line);
 		}
-		addNode(choice1, choice2, outputs);
+		addNode(choice1, choice2, outputs); //add a node to create linked list from file on run 
 	}
-	randomize();
+	randomize(); //randomize node order 
 
-	totalTurns = 20;
+	totalTurns = 20; //initial turn count, stats
 	shopFrequency = 7;
 	turnCounter = 0;
 
@@ -43,13 +43,13 @@ trail::trail(string filename) : first(NULL) {
 }
 
 void trail::addNode(const int* choice1, const int* choice2, const string* outputs) {
-	Node *new_node = newNode(choice1, choice2, outputs); 
-	new_node->next = first;  
+	Node *new_node = newNode(choice1, choice2, outputs);  
+	new_node->next = first;  //push new node to front 
 	first = new_node;
 }
 
 Node *trail::newNode(const int* choice1, const int* choice2, const string* outputs) {
-	return new Node(choice1, choice2, outputs);
+	return new Node(choice1, choice2, outputs); 
 }
 
 void trail::randomize() { //reorder all the nodes 
@@ -78,21 +78,21 @@ void trail::randomize() { //reorder all the nodes
 }
 
 string trail::checkStatus(int* stats) {
-	turnCounter++;
+	turnCounter++; //increment turn counter for when player is suppoed to win 
 	/*for (int i = 0; i < 4; i++) {
 	  cout << stats[i] << " ";
 	  }*/
 	// cout << stats[0] << " " << stats[1] << " " << stats[2] << " " << stats[3] << endl;
 	// for debugging 
 	for (int i = 0; i < 4; ++i) {
-		if (stats[i] <= 0) {
+		if (stats[i] <= 0) { //if any individual stat is less than 0 means loss 
 			return deathMessages[2 * i];
 		} 
-		if (stats[i] >= 100) {
+		if (stats[i] >= 100) { //if greater than 100 means loss
 			return deathMessages[(2 * i) + 1];
 		}
 	}
-	if (turnCounter == totalTurns) {
+	if (turnCounter == totalTurns) { //win if get to end without losing
 		return win(stats);
 	}
 
@@ -100,17 +100,17 @@ string trail::checkStatus(int* stats) {
 }
 
 string trail::win(int* stats) {
-	int finalscore = 0;
-	string finale;
-	for (int i = 0;i < 4;i++) {
+	int finalscore = 0; 
+	string finale; 
+	for (int i = 0;i < 4;i++) { //add score sum 
 		finalscore += (int)stats[i];
 	}
 
-	finale += "Final score: ";
+	finale += "Final score: "; // build score string 
 	finale += to_string(finalscore);
 	finale += "\n";
 
-	if (finalscore >= 300) {
+	if (finalscore >= 300) { //score conditions for each one. 0 is best, 4 is worst 
 		finale += endings[0];
 	} else if (finalscore >= 200) {
 		finale += endings[1];
@@ -123,15 +123,15 @@ string trail::win(int* stats) {
 }
 
 void trail::Play(int* stats) {
-	system("clear");
+	system("clear"); //clear screen 
 	bool decision;
 	current = first;
 	string resolution = "";
 	int value;
 	string previousOutput = "";
-	while (resolution == "") {
-		cout << endl << endl << endl << endl << endl;
-		cout << "Your stats" << endl;
+	while (resolution == "") { //statement to print the output necessary for new question-- only if you haven't lost or won.
+		cout << endl << endl << endl << endl << endl; //formatting 
+		cout << "Your stats" << endl; 
 		cout << "Money: " << stats[0] << endl;
 		cout << "Food:   " << stats[1] << endl;
 		cout << "Health: " << stats[2] << endl;
@@ -139,16 +139,15 @@ void trail::Play(int* stats) {
 		if (previousOutput != "") {
 			cout << previousOutput << endl << endl;
 		}
-		cout << current->getData() << endl;
+		cout << current->getData() << endl; //prints the event 
 		cout << "Enter 1 for choice 1 and 2 for choice 2: ";     
-		while (cin >> value) {
+		while (cin >> value) { //error check input
 			if (value == 1) {
 				break;
 			} else if (value == 2) {
 				break;
 			}
 			cout << "Please enter a valid choice: ";
-
 		}
 
 		if (value == 1) {
@@ -156,10 +155,11 @@ void trail::Play(int* stats) {
 		} else if (value == 2) {
 			decision = true;
 		}
-		previousOutput = choice(decision, stats);	
-		resolution = checkStatus(stats); 
+		
+		previousOutput = choice(decision, stats); //save the next choice outcome. choice also modifies stats[]	
+		resolution = checkStatus(stats);  //checks to see if you win or lose- will not be "" if you did. 
 
-		if (resolution != "") {
+		if (resolution != "") { //print this if you lose.
 			system("clear");
 			cout << endl << endl << endl << endl << endl;
 			cout << "Your stats" << endl;
@@ -172,8 +172,8 @@ void trail::Play(int* stats) {
 			break;
 		}
 
-		if ((shopFrequency - 1) == (turnCounter % shopFrequency)) {
-			shop(stats);
+		if ((shopFrequency - 1) == (turnCounter % shopFrequency)) { //random shop chance 
+			shop(stats); //call shop function, once exited, print like normal. 
 			resolution = checkStatus(stats);
 			if (resolution != "") {
 				system("clear");
@@ -195,11 +195,11 @@ void trail::Play(int* stats) {
 		}
 		system("clear");
 	}
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < 4; i++) { //when the game is over, reset stats
 		stats[i] = 50;
 	}
-	turnCounter = 0;
-	randomize();
+	turnCounter = 0; 
+	randomize(); //re-randomize order of nodes
 
 	cout << endl << "Would you like to continue? (yes/no): ";
 	while (cin >> resolution) {
@@ -210,7 +210,7 @@ void trail::Play(int* stats) {
 			break;
 		}
 	}
-	titleScreen(stats);
+	titleScreen(stats); //call this again so that it reshows the beginning. if you just returned, it'd only go into the while loop, not printing the title screen
 	return;
 }
 
@@ -218,20 +218,20 @@ Node::Node(const int* choice1, const int* choice2, const string* events) {
 	for (int i = 0; i < 3; ++i) {
 		strings[i] = events[i]; 
 	}
-	for (int i = 0; i < 4; ++i) {
-		this->choice1[i] = choice1[i];
+	for (int i = 0; i < 4; ++i) { //set data of node 
+		this->choice1[i] = choice1[i]; 
 		this->choice2[i] = choice2[i];
 	}
-	next = NULL; 
+	next = NULL; //
 }
 
 string Node::getData() const {
-	return strings[0];
+	return strings[0]; //so that you can get this private data from the function 
 }
 
 string trail::choice(bool decision, int* stats) {
 	string outcome;
-	outcome = current->choice(decision, stats);
+	outcome = current->choice(decision, stats); //information to return as string - calls node version of choice
 	current = current->next; // changes the current Node to the next one
 	return outcome;
 }
@@ -274,7 +274,7 @@ void trail::shop(int* stats) {
 		if (!cin.fail()) break;
 	}
 
-	while (true) {
+	while (true) { // stat changes based on decision in shop. 
 		switch(value) {
 			case 1:
 				stats[0] -= 10;
@@ -301,13 +301,13 @@ void trail::shop(int* stats) {
 
 void trail::titleScreen(int* stats) {
 	int value;
-	system("clear");
+	system("clear"); //clear screen to show blank 
 	cout << "\n\n\n\n\nParker and Harrison's Game\n\n\n1. Play\n2. Add Events\n3. Settings\n4. Quit\n\n\nEnter your choice (1-4): ";
-	while (cin >> value) {
+	while (cin >> value) { 
 		switch(value) {
 			case 1:
 				Play(stats);
-				return;
+				return; //return here since every function, at its end, calls titlescreen again. when the final quit is done, every past function will recursively return 
 			case 2:
 				Add(stats);
 				return;
@@ -384,10 +384,10 @@ void trail::settings(int* stats) {
 void trail::Add(int* stats) {
 	string choice, line;
 	int number;
-	ofstream output(fileName, std::ios::app);
+	ofstream output(fileName, std::ios::app); //std::ios::app lets you append to a file. 
 	
 	system("clear");
-	
+	//repeatedly take a line of input, then append to file 
 	cin.ignore();
 	cout << "Event output (string): ";
 	getline(cin, line);
@@ -425,14 +425,15 @@ void trail::Add(int* stats) {
 	cin >> number;
 	output << number << endl;
 	cout << "Would you like to add another? ";
-
+	//fout close 
 	output.close();
 
 	while (cin >> choice) {
 		if (choice == "yes") {
 			Add(stats);
 			return;
-		} else if (choice == "no")	{
+		} else if (choice == "no") {
+			//goes back to title screen- when the final return happens, they all will return at the same time 
 			titleScreen(stats);
 			return;
 		} else {
