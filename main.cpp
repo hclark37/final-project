@@ -1,3 +1,7 @@
+//Harrison Clark, Parker Dawes
+//CS202 Final 
+//The data structure included in our project is a custom linked list implementation. It uses a set of nodes that store multiple different data types, and it utilizes object-oriented programming to create a lot of separate functions that exist under a class of the overarching list. 
+
 #include <iostream>
 #include <fstream>
 #include <vector>
