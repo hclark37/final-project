@@ -4,7 +4,7 @@ Utilizes user input to decide between two choices given an event, then modifies 
 
 To compile, run: g++ main.cpp trail.cpp trail.h -o game
 
-Usage: ./game gamefile
+Usage: ./game sampleinput.txt
 
 When presented with the home screen, the user has the option to either go to a settings page, which modifies some of the functionality of the game including frequency of certain events and other gameplay parameters, a play functionality, which starts the game, and an add event functionality, which allows players to add their own custom events to the game. 
 
