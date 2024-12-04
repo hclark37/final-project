@@ -119,7 +119,7 @@ string trail::win(int* stats) {
 	} else {
 		finale += endings[3];
 	}
-	return finale;
+	return finale; 
 }
 
 void trail::Play(int* stats) {
@@ -328,7 +328,7 @@ void trail::settings(int* stats) {
 	cout << "\n\n\n\n\nSettings";
 	cout << "\n\n\n1. Total Turns\n2. Shop Frequency\n3. Exit Settings";
 	cout << "\n\n\nEnter your choice (1-3): ";
-	while (continuing) {
+	while (continuing) { 
 		cin >> value;
 		switch (value) {
 			case 1:
@@ -336,11 +336,11 @@ void trail::settings(int* stats) {
 				cout << "\n\n\n\n\nTotal Turns";
 				cout << "\n\n\n10 Turns\n20 Turns\n30 Turns";
 				cout << "\n\n\nEnter your choice (10, 20, or 30): ";
-				while (true) {
+				while (true) { 
 					cin >> value;
 					if (value == 10 || value == 20 || value == 30) {
-						totalTurns = value;
-						continuing = false;
+						totalTurns = value; //set trial class total turns to value desired 
+						continuing = false; //set break condition (to let you exit from settings)
 						break;
 					}
 					cout << "Please insert a valid choice: ";
@@ -353,7 +353,7 @@ void trail::settings(int* stats) {
 				cout << "\n\n\nEnter your choice (1-3): ";
 				while (true) {
 					cin >> value;
-					switch (value) {
+					switch (value) { //switch to let you choose your change, then exit settings condition set
 						case 1:
 							shopFrequency = 100;
 							continuing = false;
@@ -366,19 +366,19 @@ void trail::settings(int* stats) {
 							shopFrequency = 7;
 							continuing = false;
 					}
-					if (value < 1 || value > 3) {
+					if (value < 1 || value > 3) { //error check input
 						cout << "Please insert a valid choice: ";
 					} else break;
 				}
 				break;
-			case 3:
+			case 3: //continue if not a valid choice
 				title = true;
 				continuing = false;
 		}
 	}
 	if (title) {
-		titleScreen(stats);
-	} else settings(stats);
+		titleScreen(stats); //if you choose to exit 
+	} else settings(stats); //else, recurr 
 }
 
 void trail::Add(int* stats) {
