@@ -13,12 +13,13 @@ int main(int argc,char* argv[]) {
 		return 1;
 	}
 	
-	int stats[] = {50, 50, 50, 50};
-	string inputFile = argv[1];
+	int stats[] = {50, 50, 50, 50}; //create initial stat file s 
+	string inputFile = argv[1]; //save iput
 	
-	trail theTrail(inputFile);
+	trail theTrail(inputFile); //declare a new trail object 
 
-    theTrail.titleScreen(stats);
+    	theTrail.titleScreen(stats); //call title screen function 
 
 	return 0;
+	
 }
